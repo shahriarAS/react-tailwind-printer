@@ -1,7 +1,7 @@
 {
   "name": "react-tailwind-printer",
   "version": "1.0.1",
-  "description": "Print React components styled with Tailwind CSS.",
+  "description": "Without rendering first, print React components styled with Tailwind CSS programmatically.",
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
