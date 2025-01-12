@@ -1,4 +1,5 @@
-# React Tailwind Printer - Print React components styled with Tailwind CSS.
+# React Tailwind Printer
+Print React components styled with Tailwind CSS.
 
 [![NPM Downloads](https://img.shields.io/npm/dt/react-tailwind-printer.svg?style=flat)](https://npmcharts.com/compare/react-tailwind-printer?minimal=true)
 [![npm version](https://badge.fury.io/js/react-tailwind-printer.svg)](https://badge.fury.io/js/react-tailwind-printer)
