@@ -1,0 +1,35 @@
+{
+  "name": "react-tailwind-printer",
+  "version": "1.0.0",
+  "description": "Print React components styled with Tailwind CSS.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahriarAS/react-tailwind-printer.git"
+  },
+  "keywords": [
+    "react",
+    "print",
+    "reactjs",
+    "tailwind print",
+    "react-tailwind-printer"
+  ],
+  "author": "Shahriar Ahmed Shovon <shahriarahmed.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shahriarAS/react-tailwind-printer/issues"
+  },
+  "homepage": "https://github.com/shahriarAS/react-tailwind-printer#readme",
+  "devDependencies": {
+    "@types/react-dom": "^19.0.3",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
