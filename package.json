@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-printer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Print React components styled with Tailwind CSS.",
   "main": "dist/main.js",
   "scripts": {

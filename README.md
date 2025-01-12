@@ -1,4 +1,7 @@
-# `react-tailwind-printer`
+# React Tailwind Printer - Print React components styled with Tailwind CSS.
+
+[![NPM Downloads](https://img.shields.io/npm/dt/react-tailwind-printer.svg?style=flat)](https://npmcharts.com/compare/react-tailwind-printer?minimal=true)
+[![npm version](https://badge.fury.io/js/react-tailwind-printer.svg)](https://badge.fury.io/js/react-tailwind-printer)
 
 A lightweight React hook that simplifies printing React components styled with Tailwind CSS. This library ensures that Tailwind CSS styles are preserved during printing, enabling seamless and beautifully styled print outputs.
 
@@ -26,7 +29,7 @@ yarn add react-tailwind-printer
 or
 
 ```bash
-pnpm add react-tailwind-printer
+pnpm install react-tailwind-printer
 ```
 
 ---
