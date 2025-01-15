@@ -40,11 +40,9 @@ pnpm install react-tailwind-printer
 ### **Basic Example**
 
 ```tsx
-import { usePrintWithTailwind } from "react-tailwind-printer";
+import { printWithTailwind } from "react-tailwind-printer";
 
 const MyComponent = () => {
-  const printWithTailwind = usePrintWithTailwind();
-
   const handlePrint = () => {
     printWithTailwind({
       title: "Printable Component",
@@ -73,35 +71,32 @@ export default MyComponent;
 
 ### **API Reference**
 
-#### **`usePrintWithTailwind`**
+#### **`printWithTailwind`**
 
-**Returns**:  
-- A function `printWithTailwind` with the following signature:
+**Parameters**:  
+- `title` *(string, required)*: The title of the printed document.  
+- `component` *(React.ReactNode, required)*: The React component to render and print.  
+- `timeout` *(number, optional)*: The timeout in milliseconds to wait for the iframe to load before skipping the print process (default: `5000ms`).
 
 ```ts
 printWithTailwind({
   title: string;
   component: React.ReactNode;
-  delay?: number;
+  timeout?: number;
 }): void;
 ```
 
-**Parameters**:  
-- `title` *(string, required)*: The title of the printed document.  
-- `component` *(React.ReactNode, required)*: The React component to render and print.  
-- `delay` *(number, optional)*: The delay in milliseconds before triggering the print (default: `500ms`).  
-
 ---
 
-### **Customizing the Delay**
+### **Customizing the Timeout**
 
-If your component requires additional time to load styles, you can configure the delay:
+If your component requires additional time to load styles, you can configure the timeout:
 
 ```tsx
 printWithTailwind({
-  title: "Custom Delay Example",
-  component: <div className="text-lg font-medium">Custom Content</div>,
-  delay: 1000, // Wait for 1 second before printing
+  title: "Custom Timeout Example",
+  component: <div className="text-lg font-medium">Content with longer load time</div>,
+  timeout: 10000, // Wait for 10 seconds before skipping print
 });
 ```
 
