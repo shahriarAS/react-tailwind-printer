@@ -1,10 +1,10 @@
 # React Tailwind Printer
-Without rendering first, print React components styled with Tailwind CSS programmatically!
+Without rendering* first, print React components styled with Tailwind CSS programmatically!
 
 [![NPM Downloads](https://img.shields.io/npm/dt/react-tailwind-printer.svg?style=flat)](https://npmcharts.com/compare/react-tailwind-printer?minimal=true)
 [![npm version](https://badge.fury.io/js/react-tailwind-printer.svg)](https://badge.fury.io/js/react-tailwind-printer)
 
-React Tailwind Printer allows you to print React components styled with Tailwind CSS *programmatically*, **without rendering them first**. It ensures that Tailwind styles are preserved during the print process, making it easy to print dynamic content without pre-rendering.
+React Tailwind Printer allows you to print React components styled with Tailwind CSS *programmatically*, **without rendering* them first**. It ensures that Tailwind styles are preserved during the print process, making it easy to print dynamic content without pre-rendering*.
 
 ---
 
@@ -120,3 +120,6 @@ Contributions are welcome! Please feel free to open issues or submit pull reques
 ---
 
 Would you like to include more advanced examples or additional customization options?
+
+\
+\* React Tailwind Printer does not render components directly in the visible DOM, it performs off-screen rendering by creating a hidden iframe. The component is rendered within this iframe to ensure Tailwind CSS styles are correctly applied during the print process. This rendering is completely isolated and does not interfere with the visible content of your application.
