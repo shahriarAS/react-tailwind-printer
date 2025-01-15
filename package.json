@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-printer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Without rendering first, print React components styled with Tailwind CSS programmatically.",
   "main": "dist/main.js",
   "scripts": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/shahriarAS/react-tailwind-printer#readme",
   "devDependencies": {
+    "@types/node": "^22.10.6",
     "@types/react-dom": "^19.0.3",
     "typescript": "^5.7.3"
   },

@@ -1,0 +1,12 @@
+# Changelog
+
+## [1.1.0] - 2025-01-15
+
+### Changed
+- **Moved React and React-DOM from dependencies to peerDependencies**: This change prevents multiple versions of React or React-DOM from being installed in a project, thus avoiding potential conflicts and unexpected behaviors.
+
+### Fixed
+- **Improved iframe cleanup logic**: Enhanced error handling during rendering and printing to manage edge cases more robustly.
+
+### Refactored
+- **Renamed `usePrintWithTailwind` to `printWithTailwind`**: Since the function does not utilize any React hooks internally, the naming was misleading. This change clarifies that it's not a hook, reducing confusion for developers using the package.

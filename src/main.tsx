@@ -1,31 +1,30 @@
 import { createRoot } from "react-dom/client";
 
-export function usePrintWithTailwind() {
-  const printWithTailwind = ({
-    title,
-    component,
-    delay = 500,
-  }: {
-    title: string;
-    component: React.ReactNode;
-    delay?: number;
-  }) => {
-    const iframe = document.createElement("iframe") as HTMLIFrameElement;
-    iframe.style.position = "absolute";
-    iframe.style.top = "-10000px";
-    document.body.appendChild(iframe);
+export function printWithTailwind({
+  title,
+  component,
+  timeout = 5000,
+}: {
+  title: string;
+  component: React.ReactNode;
+  timeout?: number;
+}) {
+  const iframe = document.createElement("iframe") as HTMLIFrameElement;
+  iframe.style.position = "absolute";
+  iframe.style.top = "-10000px";
+  document.body.appendChild(iframe);
 
-    const contentWindow = iframe.contentWindow;
+  const contentWindow = iframe.contentWindow;
 
-    if (!contentWindow || !contentWindow.document) {
-      console.error("Unable to access iframe contentWindow or document.");
-      document.body.removeChild(iframe);
-      return;
-    }
+  if (!contentWindow || !contentWindow.document) {
+    console.error("Unable to access iframe contentWindow or document.");
+    document.body.removeChild(iframe);
+    return;
+  }
 
-    const doc = contentWindow.document;
-    doc.open();
-    doc.write(`
+  const doc = contentWindow.document;
+  doc.open();
+  doc.write(`
       <!DOCTYPE html>
       <html>
       <head>
@@ -37,26 +36,36 @@ export function usePrintWithTailwind() {
       </body>
       </html>
     `);
-    doc.close();
+  doc.close();
 
-    const rootDom = createRoot(
-      doc.getElementById("print-react-tailwind-root")!
-    );
+  const rootDom = createRoot(doc.getElementById("print-react-tailwind-root")!);
+  rootDom.render(component);
 
-    rootDom.render(component);
+  iframe.onload = () => {
+    if (contentWindow.document.body.innerHTML.trim() === "") {
+      console.warn("Iframe content not ready for printing.");
+      cleanup();
+      return;
+    }
 
-    // Wait for the iframe to load styles before printing
-    setTimeout(() => {
-      try {
-        contentWindow.focus();
-        contentWindow.print();
-      } catch (error) {
-        console.error("Error during printing:", error);
-      } finally {
-        document.body.removeChild(iframe);
-      }
-    }, delay);
+    try {
+      contentWindow!.focus();
+      contentWindow!.print();
+    } catch (error) {
+      console.error("Error during printing:", error);
+    } finally {
+      cleanup();
+    }
   };
 
-  return printWithTailwind;
+  setTimeout(() => {
+    console.warn("Timed out waiting for iframe to load. Skipping print.");
+    cleanup();
+  }, timeout);
+
+  function cleanup() {
+    if (document.body.contains(iframe)) {
+      document.body.removeChild(iframe);
+    }
+  }
 }
